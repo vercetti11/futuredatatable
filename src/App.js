@@ -1,4 +1,4 @@
-import { Avatar, Table, TableBody, Tooltip } from "evergreen-ui";
+import { Avatar, Table, Pane } from "evergreen-ui";
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
@@ -54,7 +54,11 @@ const TableRow = ({
       <Table.TextCell>{linkToMerchant}</Table.TextCell>
       <Table.TextCell>{merchantName}</Table.TextCell>
       <Table.Cell>
-        <Avatar src={merchantLogoURL} size={40} name={merchantName} />
+        <Pane
+          background={`transparent url("${merchantLogoURL}") no-repeat center/contain`}
+          height="100%"
+          width={60}
+        />
       </Table.Cell>
       <Table.TextCell>Image</Table.TextCell>
     </Table.Row>
