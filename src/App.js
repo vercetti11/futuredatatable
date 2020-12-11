@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch(
+      "https://search-api.fie.future.net.uk/widget.php?id=review&model_name=xbox_one_s&area=GB"
+    )
+      .then(res => res.json())
+      .then(data => setData(data.widget.data.offers));
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>Hi</p>
+      {data.map(offer => (
+        <div style={{ marginBottom: 16 }} key={offer.id}>
+          {JSON.stringify(offer)}
+        </div>
+      ))}
     </div>
   );
 }
