@@ -32,6 +32,7 @@ function App() {
             linkToMerchant={offer.merchant.url}
             merchantName={offer.merchant.name}
             merchantLogoURL={offer.merchant.logo_url}
+            productImage={offer.image}
           />
         ))}
       </Table.Body>
@@ -46,6 +47,7 @@ const TableRow = ({
   linkToMerchant,
   merchantName,
   merchantLogoURL,
+  productImage,
 }) => {
   return (
     <Table.Row key={id}>
@@ -60,7 +62,13 @@ const TableRow = ({
           width={60}
         />
       </Table.Cell>
-      <Table.TextCell>Image</Table.TextCell>
+      <Table.Cell>
+        <Pane
+          background={`transparent url("${productImage}") no-repeat center/contain`}
+          height="100%"
+          width={60}
+        />
+      </Table.Cell>
     </Table.Row>
   );
 };
