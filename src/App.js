@@ -1,4 +1,4 @@
-import { Avatar, Table, Pane } from "evergreen-ui";
+import { Table, Pane } from "evergreen-ui";
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
